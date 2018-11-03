@@ -6,7 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { UserDetailsPage } from '../pages/user-details/user-details';
-import {RegisterPage} from '../pages/register/register';
+import { RegisterPage } from '../pages/register/register';
 import { EventsPage } from '../pages/events/events';
 import { OrganizationDetailsPage } from '../pages/organization-details/organization-details';
 
