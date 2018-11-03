@@ -12,6 +12,7 @@ import { RegisterPage } from '../pages/register/register';
 import { UserDetailsPage } from '../pages/user-details/user-details';
 import { OrganizationDetailsPage } from '../pages/organization-details/organization-details';
 import { EventsPage } from '../pages/events/events';
+import { CreateEventPage } from '../pages/create-event/create-event';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginProvider } from '../providers/login/login';
@@ -26,7 +27,8 @@ import { RequestProvider } from '../providers/request/request';
     RegisterPage,
     UserDetailsPage,
     OrganizationDetailsPage,
-    EventsPage
+    EventsPage,
+    CreateEventPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { RequestProvider } from '../providers/request/request';
     LoginPage,
     UserDetailsPage,
     OrganizationDetailsPage,
-    EventsPage
+    EventsPage,
+    CreateEventPage
   ],
   providers: [
     StatusBar,
