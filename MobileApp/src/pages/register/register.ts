@@ -28,15 +28,17 @@ export class RegisterPage {
     });
 
     this.registerForm1 = this.formBuilder.group({
-      name: [''],
-      surname: [''],      
+     
       email: [''],
-      password: [''],
+      password: [''],     
+     
     });
 
     this.registerForm2 = this.formBuilder.group({
       name: [''],
-      surname: [''],      
+      surname: [''],
+      birthdate: [''],
+      description: [''],   
     });
   }
 
@@ -55,6 +57,8 @@ export class RegisterPage {
     phoneNumber: "",
     password: "",
     id: "",
+    birthdate: "",
+    description: ""
   };
 
 
@@ -70,8 +74,8 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-  goToUniversitySlide(){
-    if(this.volunteer.name == "" || this.volunteer.surname == "" || this.volunteer.password == "" || this.volunteer.password == ""){
+  goToActualRegistration2(){
+    if( this.volunteer.email == "" || this.volunteer.password == ""){
       this.showErrorAlert("You must fill in all fields");
     }
     else{
@@ -88,8 +92,18 @@ export class RegisterPage {
       this.goToNextSlide();
       this.goToNextSlide();
     }
+  }
 
+  goToUniversitySlide(){
+  
+    if(this.volunteer.name == "" || this.volunteer.surname == "" || this.volunteer.birthdate == "" || this.volunteer.description == ""){
+      this.showErrorAlert("You must fill in all fields");
+    }
+    else{
+    this.goToNextSlide();
+    }
 
+    
   }
 
   showErrorAlert(errorMessage: string){
