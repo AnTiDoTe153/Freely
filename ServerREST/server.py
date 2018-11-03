@@ -159,7 +159,7 @@ def registerUser():
                 return '{"status":"ERROR"}'
 
     except KeyError:
-        print("Invalid data", sys.stderr)
+        print("[ ERROR ] Invalid data", sys.stderr)
         return '{"status":"ERROR"}'
     try:
         db = get_db()
@@ -171,7 +171,6 @@ def registerUser():
         return '{"status":"ERROR"}'
 
     
-
 
 @app.route('/registerOrganisation', methods=['POST'])
 def registerOrganisation():
@@ -212,11 +211,13 @@ def createEvent():
         print("[ ERROR ] Invalid data", sys.stderr)
         return '{"status":"ERROR"}'
     
+    #TO-DO return category
     try:
         values = [request_dict['name'],
         request_dict['date'],
         request_dict['description'],
-        request_dict['organisation']]
+        request_dict['organisation'],
+        request_dict['category']]
 
         #TO-DO description can be null
         for element in values:
@@ -227,40 +228,103 @@ def createEvent():
     except KeyError:
         print("Invalid data", sys.stderr)
         return '{"status":"ERROR"}'
+
     try:
         db = get_db()
-        query = 'select organisationId from organisations where name=\'' + values[3] + '\''
-        print(query)
+        query = 'select organisationId from Organisations where name=\'' + values[3] + '\''
+        query2 = 'select categoryId from Categories where name=\'' + values[4] + '\''
+        query3 = 'select eventId from Events where name=\'' + values[0] + '\''
         
-        #TO-Do fix this mess. only one value expected!!
-        for row in db.execute(query):
-            idOrganisation = row[0]
-
+        
         event = [request_dict['name'],
-        request_dict['date'],
-        request_dict['description']]
+        request_dict['description'],
+        request_dict['date']]
 
-        print(idOrganisation)
-        db.execute('insert into events (name, date, description) values (?,?,?)', event)
-        
+        db.execute('insert into events (name, description, date) values (?,?,?)', event)
         db.commit()
-
-        query2 = 'select eventId from events where name=\'' + values[0] + '\''
-        for row2 in db.execute(query2):
-            idEvent = row2[0]
-        print(idEvent)
+        #TO-Do fix this mess. only one value expected!!
         
+        for row in db.execute(query):
+            organisationId = row[0]
+            break
 
-        eventValues = [idOrganisation, idEvent]
+        for row2 in db.execute(query2):
+            categoryId = row2[0]
+            break
+
+        for row2 in db.execute(query3):
+            eventId = row2[0]
+            break
+        
+        eventValues = [organisationId, eventId]
 
         db.execute('insert into OrganisationEvents (organisationid, eventid) values (?,?)', eventValues)
         db.commit()
+
+        for row3 in db.execute(query3):
+            eventId = row3[0]
+            break
+
+        eventCategories = [eventId, categoryId]
+        
+        db.execute('insert into eventCategories (eventid, categoryid) values (?,?)', eventCategories)
+
+        db.commit()
+
         return '{"status":"OK"}'
     except:
         print("[ ERROR ] Can't insert data in db", sys.stderr)
         return '{"status":"ERROR"}'
 
+@app.route('/createApplication', methods=['POST'])
+def createApplication():
+    request_dict = request.get_json()
+    if request_dict == None:
+        print("[ ERROR ] Invalid data", sys.stderr)
+        return '{"status":"ERROR"}'
+    
+    try:
+        values = [request_dict['email'],
+        request_dict['event'],
+        request_dict['type']]
 
+        #type can be interested or pending if user applied
+
+        #TO-DO description can be null
+        for element in values:
+            if element == "":
+                print("[ ERROR ] Invalid data", sys.stderr)
+                return '{"status":"ERROR"}'
+
+    except KeyError:
+        print("[ ERROR ] Invalid data", sys.stderr)
+        return '{"status":"ERROR"}'
+
+    try:
+        db = get_db()
+        query = 'select userId from Users where email=\'' + values[0] +'\''
+        query2 = 'select eventId from Events where name=\'' + values[1] + '\''
+
+        for row in db.execute(query):
+            userId = row[0]
+            break
+
+        for row2 in db.execute(query2):
+            eventId = row2[0]
+            break
+        
+        if values[2] == "pending":
+            appType = "2"
+        else:
+            appType = "1"
+        applicationValues = [userId, eventId, appType]
+        db.execute('insert into Applications (userid, eventid, statusid) values (?,?,?)', applicationValues)
+        db.commit()
+        return '{"status":"OK"}'
+
+    except:
+        print("[ ERROR ] Invalid data", sys.stderr)
+        return '{"status":"ERROR"}'
     
 
 if __name__ == '__main__':
