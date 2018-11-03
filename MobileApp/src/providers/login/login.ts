@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
+import { RequestProvider } from '../request/request';
 
 /*
   Generated class for the LoginProvider provider.
@@ -10,8 +11,16 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LoginProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(private requestProvider: RequestProvider) {
     console.log('Hello LoginProvider Provider');
+  }
+
+  login(username: string, password: string): Promise<any>{
+    var payload ={
+      username: username,
+      password: password
+    }
+    return this.requestProvider.buildPost("login", payload, false).toPromise();
   }
 
 }

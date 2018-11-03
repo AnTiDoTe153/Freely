@@ -19,7 +19,7 @@ export class RequestProvider {
     private errors: Observable<any>;
     private errorsSubject = new Subject<any>();
 
-    private restUrl: string = "http://80.240.140.117/ElysianTimeManagerRest1/rest/";
+    private restUrl: string = "http://192.168.86.71:5000/";
 
     private jwt_token: String;
 

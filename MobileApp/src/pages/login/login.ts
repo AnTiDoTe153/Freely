@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
+import { LoginProvider } from '../../providers/login/login';
 
 /**
  * Generated class for the LoginPage page.
@@ -22,7 +23,7 @@ export class LoginPage {
   private rememberPass: boolean = false;
   private isLoading: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private loginProvider: LoginProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -50,6 +51,10 @@ export class LoginPage {
   }
 
   doLogin(){
+    this.loginProvider.login(this.account.username, this.account.password).then(result =>{
+      console.log(result);
+    });
+
     localStorage.setItem("rememberPass",this.rememberPass.toString()); 
     if(this.rememberPass){
       localStorage.setItem("username",this.account.username);
