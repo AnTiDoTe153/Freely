@@ -33,7 +33,6 @@ def connect_db():
     rv.row_factory = sqlite3.Row
     return rv
 
-
 def get_db():
     if not hasattr(g, 'sqlite_db'):
         g.sqlite_db = connect_db()
@@ -44,12 +43,14 @@ def close_db(error):
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
 
+# METHODS
+
 @app.route('/loginTest', methods=['POST'])
 def login_test():
         request_dict = request.get_json()
         if request_dict == None:
             print("Invalid data", sys.stderr)
-            return 'ERROR'
+            return '{"status":"ERROR"}'
         # print(request_dict, sys.stderr)
 
         try:
@@ -57,11 +58,53 @@ def login_test():
                     request_dict['password']]
         except KeyError:
             print("Invalid data", sys.stderr)
-            return 'ERROR'
+            return '{"status":"ERROR"}'
 
         print("[ INFO ] Test user login: {}").format(values[0])
         
-        return 'OK'
+        return '{"status":"OK"}'
+
+@app.route('/login', methods=['POST'])
+def login():
+    request_dict = request.get_json()
+    if request_dict == None:
+        print("[ ERROR ] Invalid data", sys.stderr)
+        return '{"status":"ERROR"}'
+    
+    try:
+        values = [request_dict['username'],
+        request_dict['password']]
+    except KeyError:
+        print("Invalid data", sys.stderr)
+        return '{"status":"ERROR"}'
+
+    try:
+        db = get_db()
+        
+        query = 'select FirstName, LastName, Birthdate, Rating, Email, Description from Users where Email=\'' + values[0] + '\' and Password=\'' + values[1] + '\''
+
+        for row in db.execute(query):
+            user = {
+                "firstName" : row[0],
+                "lastName" : row[1],
+                "birthdate" : row[2],
+                "rating" : row[3],
+                "email" : row[4],
+                "description" : row[5]
+            }
+    
+        res = jsonify(user)
+        print(res)
+        return res
+    except:
+        print("[ ERROR ] No user", sys.stderr)
+        return '{"status":"ERROR"}'
+    
+    return '{"status":"ERROR"}'
+
+@app.route('/register', methods=['POST'])
+def register():
+    pass
 
 if __name__ == '__main__':
     
