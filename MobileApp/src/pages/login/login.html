@@ -1,0 +1,46 @@
+<ion-content class="login-content" padding>
+  
+  <div class="login-box">
+    <form (submit)="doLogin()">
+      <ion-list inset>
+
+        <div class="title">
+          LOGIN
+        </div>
+
+        <ion-item>
+          <ion-input placeholder="username" type="text" [(ngModel)]="account.username" name="username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input placeholder="password" type="password" [(ngModel)]="account.password" name="password"></ion-input>
+        </ion-item>
+
+        <div class="passItem" tappable (click)="togglePass()">
+          <ion-row>
+            <ion-icon style="font-size:1.3em;color:black;" [name]="passIcon()"></ion-icon>
+            <div class="passRem">
+              Remember password
+            </div>
+          </ion-row>
+        </div>
+
+
+        <div padding>
+          <button ion-button block [disabled]="isLoading">
+            <div *ngIf="isLoading">
+              <ion-spinner name="bubbles"></ion-spinner>
+            </div>
+            <div *ngIf="!isLoading">
+              Login
+            </div>
+          </button>
+        </div>
+
+
+
+      </ion-list>
+    </form>
+
+  </div>
+</ion-content>
