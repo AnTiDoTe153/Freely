@@ -19,14 +19,27 @@ export class LoginPage {
     username: "",
     password: ""
   };
-  private rememberPass: boolean = true;
+  private rememberPass: boolean = false;
   private isLoading: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+   
+    if(localStorage.getItem("rememberPass")=="true"){
+    
+      this.rememberPass=true;
+    }else{
+      this.rememberPass=false;
+    }
+
+    if(this.rememberPass){
+      this.account.username=localStorage.getItem("username");
+      this.account.password=localStorage.getItem("password");
+    }
+
+    
   }
 
   passIcon() {
@@ -37,11 +50,17 @@ export class LoginPage {
   }
 
   doLogin(){
-
+    localStorage.setItem("rememberPass",this.rememberPass.toString()); 
+    if(this.rememberPass){
+      localStorage.setItem("username",this.account.username);
+      localStorage.setItem("password",this.account.password);
+      
+    }
+ 
   }
 
   togglePass(){
-    
+    this.rememberPass =! this.rememberPass;
   }
 
   movetoregisterpage(){

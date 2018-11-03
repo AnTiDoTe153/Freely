@@ -16,9 +16,9 @@
           <ion-input placeholder="password" type="password" [(ngModel)]="account.password" name="password"></ion-input>
         </ion-item>
 
-        <div class="passItem" tappable (click)="togglePass()">
+        <div class="passItem" tappable (click)="togglePass()"> <!-- event binding -->
           <ion-row>
-            <ion-icon style="font-size:1.3em;color:black;" [name]="passIcon()"></ion-icon>
+            <ion-icon style="font-size:1.3em;color:black;" [name]="passIcon()"></ion-icon> <!-- property binding-->
             <div class="passRem">
               Remember password
             </div>
@@ -36,11 +36,6 @@
             </div>
           </button>
         </div>
-
-
-        <div padding>
-            <button ion-button (click)="movetoregisterpage()" block [disabled]="isLoading">Register</button> 
-          </div>
 
 
 
