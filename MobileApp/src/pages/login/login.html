@@ -4,11 +4,9 @@
     <form (submit)="doLogin()">
       <ion-list inset>
 
-        <div class="title">
-          <!--LOGIN -->
-           <ion-img class = "logo"src="assets/imgs/logo.png" ></ion-img>
-        </div>
-        <h3>Sign in</h3>
+        <ion-img style="background: transparent; height: 200px; width: 250px !important;" src="assets/imgs/logo2.png"></ion-img>
+
+        <h2>Sign in</h2>
         <ion-item>
           <ion-input placeholder="email" type="text" [(ngModel)]="account.email" name="email"></ion-input>
         </ion-item>
@@ -21,7 +19,7 @@
           <ion-row>
             <ion-icon style="font-size:1.3em;color:black;" [name]="passIcon()"></ion-icon> <!-- property binding-->
             <div class="passRem">
-              Remember password
+              remember password
             </div>
           </ion-row>
         </div>
