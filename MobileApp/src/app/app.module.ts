@@ -9,12 +9,14 @@ import { LoginPage } from '../pages/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginProvider } from '../providers/login/login';
+import { OrganizationDetailsPage } from '../pages/organization-details/organization-details';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    OrganizationDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { LoginProvider } from '../providers/login/login';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    OrganizationDetailsPage
   ],
   providers: [
     StatusBar,
