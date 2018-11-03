@@ -6,6 +6,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { UserDetailsPage } from '../pages/user-details/user-details';
+
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginProvider } from '../providers/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -15,18 +17,21 @@ import { StatusBar } from '@ionic-native/status-bar';
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    UserDetailsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     LoginPage, 
-    RegisterPage
+    RegisterPage,
+    LoginPage,
+    UserDetailsPage
   ],
   providers: [
     StatusBar,
