@@ -9,4 +9,22 @@ page-events {
         display: grid;
         grid-template-columns: 70% 30%;
     }
+    .input-wrapper{
+        padding:0px !important;
+        margin: 0px !important;
+    }
+    .coverImage{
+        background: transparent;
+    }
+    .eventHeader{
+        background: map-get($colors, primary);
+            border-radius: 16px !important;
+            height: 25px;
+            @font-face {
+                font-family: "OpenSans-Bold";
+                src: url("assets/fonts/OpenSans-Bold.ttf") format("ttf");
+                font-weight: normal;
+                } 
+    }
+    
 }
