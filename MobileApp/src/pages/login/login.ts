@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { LoginProvider } from '../../providers/login/login';
+import { AlertController } from 'ionic-angular';
+import { UserDetailsPage } from '../../pages/user-details/user-details';
 
 /**
  * Generated class for the LoginPage page.
@@ -23,7 +25,7 @@ export class LoginPage {
   private rememberPass: boolean = false;
   private isLoading: boolean = false;
 
-  constructor(private loginProvider: LoginProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private alertController: AlertController, private loginProvider: LoginProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -50,9 +52,22 @@ export class LoginPage {
     return "square";
   }
 
+  displayErrorAlert(message: string){
+    var alert = this.alertController.create();
+    alert.setTitle("Error");
+    alert.setMessage(message);
+    alert.addButton("Ok");
+    alert.present();
+  }
+
   doLogin(){
     this.loginProvider.login(this.account.email, this.account.password).then(result =>{
       console.log(result);
+      if(result.status == "OK"){
+        this.navCtrl.setRoot(UserDetailsPage);
+      }else{
+        this.displayErrorAlert("Invalid login data!");
+      }
     });
 
     localStorage.setItem("rememberPass",this.rememberPass.toString()); 
