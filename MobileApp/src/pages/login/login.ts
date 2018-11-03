@@ -64,6 +64,12 @@ export class LoginPage {
     this.loginProvider.login(this.account.email, this.account.password).then(result =>{
       console.log(result);
       if(result.status == "OK"){
+        sessionStorage.setItem("type", result.type);
+        if(result.type == "volunteer"){
+          sessionStorage.setItem("firstName", result.data.firstName);
+        }else{
+          sessionStorage.setItem("name", result.data.name);
+        }
         this.navCtrl.setRoot(UserDetailsPage);
       }else{
         this.displayErrorAlert("Invalid login data!");

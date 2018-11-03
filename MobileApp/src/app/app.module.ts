@@ -19,6 +19,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginProvider } from '../providers/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { RequestProvider } from '../providers/request/request';
+import { EventsProvider } from '../providers/events/events';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { RequestProvider } from '../providers/request/request';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
-    RequestProvider
+    RequestProvider,
+    EventsProvider
   ]
 })
 export class AppModule {}

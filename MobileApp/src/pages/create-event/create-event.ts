@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { EventsProvider } from '../../providers/events/events';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the CreateEventPage page.
@@ -23,15 +25,30 @@ export class CreateEventPage {
     category: "Music"
   }
 
-  constructor(private viewController: ViewController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private alertController: AlertController, private eventsProvider: EventsProvider, private viewController: ViewController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateEventPage');
   }
 
-  createEvent(){
+  showErrorAlert(message: string){
+    var alert = this.alertController.create();
+    alert.setTitle("Error");
+    alert.setMessage(message);
+    alert.addButton("Ok");
 
+    alert.present();
+  }
+
+  createEvent(){
+    this.eventsProvider.createEvent(this.event.name, this.event.date, sessionStorage.getItem("name"), this.event.description, this.event.category).then(data =>{
+      if(data.status == "OK"){
+        this.dismiss();
+      }else{
+        this.showErrorAlert("A aparut o eroare!");
+      }
+    });
   }
 
   dismiss() {

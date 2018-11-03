@@ -30,7 +30,7 @@
     </ion-item>
 
     <ion-item no-lines>
-      <ion-input placeholder="START DATE" [(ngModel)]="event.startDate" name="startDate" type="date"></ion-input>
+      <ion-input placeholder="START DATE" [(ngModel)]="event.date" name="startDate" type="date"></ion-input>
     </ion-item>
 
     <ion-item-divider>
@@ -61,7 +61,7 @@
     </ion-item>
 
 
-    <div style="padding-top: 110px;" padding>
+    <div style="padding-top: 50x;" padding>
         <button ion-button block (click)="createEvent()" [disabled]="isLoading">
           <div *ngIf="isLoading">
             <ion-spinner name="bubbles"></ion-spinner>
