@@ -17,14 +17,13 @@ page-events {
         background: transparent;
     }
     .eventHeader{
-        background: map-get($colors, primary);
+            color: map-get($colors, primary);
             border-radius: 16px !important;
             height: 25px;
-            @font-face {
-                font-family: "OpenSans-Bold";
-                src: url("assets/fonts/OpenSans-Bold.ttf") format("ttf");
-                font-weight: normal;
-                } 
+            font-weight: bolder;
+            font-family: 'OpenSans-Bold';
+            src:url("assets/fonts/OpenSans-Bold.ttf") format("ttf");
+            font-size:18px;
     }
     
 }
