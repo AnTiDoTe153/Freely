@@ -14,6 +14,13 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class OrganizationDetailsPage {
 
+
+  organizationName: string = "HackTM";
+  description: string = "Lorem ipsum dolor sit amet";
+  email: string = "hackTM@gmail.com";
+  phone: string = "0745048848";
+  website: string = "http://www.hackTM.com";
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
