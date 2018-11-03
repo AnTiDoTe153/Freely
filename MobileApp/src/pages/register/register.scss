@@ -1,0 +1,17 @@
+page-register {
+    .registerWrapper{
+        padding: 20px;
+    }
+
+}
+.submitBtn{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    display: block;
+    background: transparent;
+    width: 30%;
+    border-radius: 5px;
+    border: 2px solid map-get($colors, primary);
+    color: map-get($colors, primary);
+}

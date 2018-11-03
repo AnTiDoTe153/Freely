@@ -4,21 +4,18 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login'; 
-import { EventsPage } from '../pages/events/events';
-
-import { StatusBar } from '@ionic-native/status-bar';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginProvider } from '../providers/login/login';
-import { OrganizationDetailsPage } from '../pages/organization-details/organization-details';
+import { StatusBar } from '@ionic-native/status-bar';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    OrganizationDetailsPage,
-    EventsPage
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -28,9 +25,8 @@ import { OrganizationDetailsPage } from '../pages/organization-details/organizat
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage,
-    OrganizationDetailsPage,
-    EventsPage
+    LoginPage, 
+    RegisterPage
   ],
   providers: [
     StatusBar,
