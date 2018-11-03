@@ -11,12 +11,12 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-list-header no-lines>
+    <ion-list-header class="eventHeader" no-lines>
       {{'Your events'}}
     </ion-list-header>
 
-    <ion-item no-lines *ngFor="let item of eventList">
-      <ion-card style="width: 95%">
+   
+      <ion-card *ngFor="let item of eventList" style="width: 95%">
         <ion-card-content>
           <div>
             <p>Name: {{item.name}}</p>
@@ -26,6 +26,9 @@
           <ion-img class="coverImage" src="assets/imgs/cover-hackTM.jpg"></ion-img>
         </ion-card-content>
       </ion-card>
-    </ion-item>
+   
   </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab><ion-icon name="add"></ion-icon></button>
+</ion-fab>
 </ion-content>

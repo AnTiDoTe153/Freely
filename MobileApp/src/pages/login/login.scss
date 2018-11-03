@@ -13,7 +13,6 @@ page-login {
             margin-left: auto;
             margin-right: auto;
             margin-top: 10%;
-            border-radius: 5px !important;
             height: 100%;
         }
 
@@ -41,29 +40,20 @@ page-login {
             padding-left: 20px;
         }
 
-        .title{
-            font-size: 30px;
-            margin-bottom: 20px;
-            text-align: center;
-            
-        }
 
         button {
             background: map-get($colors, primary);
             border-radius: 16px !important;
             height: 25px;
             @font-face {
-                font-family: OpenSans-Light;
-                src: url(/home/flavius/Documents/ConkeEvents/MobileApp/src/assets/fonts/OpenSans-Light.ttf) format("ttf");
+                font-family: "OpenSans-Light";
+                src: url("assets/fonts/OpenSans-Light.ttf") format("ttf");
                 font-weight: normal;
                 }
                 body {
-                    font-family: OpenSans-Light !important;
+                    font-family: "OpenSans-Light" !important;
                 }
         }
-        .logo{
-            background: transparent;
-            height: 5% !important;
-        }
+
     }
 }
