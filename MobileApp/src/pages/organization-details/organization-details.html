@@ -17,29 +17,35 @@
 
 
 <ion-content>
-    <ion-img class="coverImage" src="assets/imgs/cover-hackTM.jpg"></ion-img>
-
-    <div class="innerContent">
-
-      <h3>Description <ion-icon style="padding-left: 5px; font-size: 15px;" name="create"></ion-icon> </h3>
+      <ion-img class="coverImage" src="assets/imgs/cover-hackTM.jpg"></ion-img>
+      <p class="logo-rating" style="text-align:right">
+          3.0 <ion-icon name="star"></ion-icon>
+      </p>
+      <hr class="logo-separator">
+      <div class="innerContent">
+      <h3>Description</h3>
       <div class="description">
           <p>{{description}}</p>
       </div>
 
-      <h3>Categories <ion-icon style="padding-left: 5px; font-size: 15px;" name="create"></ion-icon> </h3>
+      <h3>Categories</h3>
       <div class="categories">
           <ion-item no-lines>Science</ion-item>
           <ion-item no-lines>Hackathon</ion-item>
       </div>
       
-      <h3>Contact info<ion-icon style="padding-left: 5px; font-size: 15px;" name="create"></ion-icon> </h3>
+      <h3>Contact info</h3>
       <div class="contactInfo">
         <ion-item no-lines>
-            <p> <ion-icon name="mail"></ion-icon> {{email}}</p>
-            <p> <ion-icon name="call"></ion-icon> {{phone}}</p>
-            <p> <ion-icon name="desktop"></ion-icon> {{website}}</p>
+            <p> <ion-icon name="mail" color="secondary"></ion-icon> {{email}}</p>
+            <p> <ion-icon name="call" color="secondary"></ion-icon> {{phone}}</p>
+            <p> <ion-icon name="desktop" color="secondary"></ion-icon> {{website}}</p>
         </ion-item>
       </div>
-
     </div>
+    <ion-fab right bottom>
+        <button ion-fab color="primary">
+            <ion-icon name='create'></ion-icon>
+        </button>
+    </ion-fab>
 </ion-content>

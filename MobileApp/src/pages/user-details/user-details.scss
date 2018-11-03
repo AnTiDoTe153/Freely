@@ -25,11 +25,15 @@ page-user-details {
         margin: 0px;
         font-weight: bold;
     }
-
+    .logo-separator{
+        background-color:map-get($colors, primary);
+        height:2px;
+        margin: 10px;
+    }
     .logo-rating{
         font-size: 25px;
         font-weight: bold;
-        color:map-get($colors, primary);
+        color:map-get($colors, third);
         padding: 0px;
         margin: 0px;
     }
@@ -40,5 +44,12 @@ page-user-details {
         padding-left: 20px;
         padding-right: 20px;
         text-align: center;
+        margin-top: 0px;
+    }
+    .contactInfo{
+        p{
+            color: black;
+            padding: 5px;
+        }
     }
 }

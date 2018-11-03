@@ -12,10 +12,10 @@
       <img class ="circle-pic" src="assets/imgs/koala7.jpg"/>
 
       <p class="logo-name">
-          Lorina Dudau
+          {{userName}}
       </p>
       <p class="logo-rating">
-          3.0 <ion-icon name="star"></ion-icon>
+          {{rating}} <ion-icon name="star"></ion-icon>
       </p>
 
   </div>
@@ -23,16 +23,14 @@
   <p class="logo-desc">
       Imi place sa ma dau cu bicicleta si sa tai frunze la caini    
   </p>
-   
-    <ion-item>
-      <ion-icon color="subtle" large item-start name='pin'></ion-icon>
-      <h2>Timisoara, Romania</h2>
+  <hr class="logo-separator">
+  <h3 style="margin:10px">Contact info</h3>
+  <div class="contactInfo">
+    <ion-item large no-lines>
+        <p> <ion-icon large name="mail" color="secondary"></ion-icon> {{email}}</p>
+        <p> <ion-icon large name="call" color="secondary"></ion-icon> {{phone}}</p>
     </ion-item>
-
-    <ion-item>
-      <ion-icon color="subtle" large item-start name='mail'></ion-icon>
-      <h2>koala@gmail.com</h2>
-    </ion-item>
+  </div>
     <ion-fab right bottom>
         <button ion-fab color="primary">
             <ion-icon name='create'></ion-icon>
