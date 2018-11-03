@@ -12,13 +12,18 @@ page-login {
             max-width: 350px;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 30%;
+            margin-top: 10%;
             border-radius: 5px !important;
+            height: 100%;
+        }
+
+        ion-input{
+            padding: 0px !important;
         }
 
         ion-item {
             border-radius: 5px !important;
-            padding-left: 20px !important;
+            padding-left: 0px !important;
             font-size: 1.2em;
             margin-bottom: 10px;
             border-bottom: 0px !important;
@@ -44,8 +49,21 @@ page-login {
         }
 
         button {
-            background: map-get($button-colors, primary);
-            border-radius: 5px !important;
+            background: map-get($colors, primary);
+            border-radius: 16px !important;
+            height: 25px;
+            @font-face {
+                font-family: OpenSans-Light;
+                src: url(/home/flavius/Documents/ConkeEvents/MobileApp/src/assets/fonts/OpenSans-Light.ttf) format("ttf");
+                font-weight: normal;
+                }
+                body {
+                    font-family: OpenSans-Light !important;
+                }
+        }
+        .logo{
+            background: transparent;
+            height: 5% !important;
         }
     }
 }

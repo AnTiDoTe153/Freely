@@ -15,12 +15,12 @@ export class LoginProvider {
     console.log('Hello LoginProvider Provider');
   }
 
-  login(username: string, password: string): Promise<any>{
+  login(email: string, password: string): Promise<any>{
     var payload ={
-      username: username,
+      email: email,
       password: password
     }
-    return this.requestProvider.buildPost("login", payload, false).toPromise();
+    return this.requestProvider.buildPost("login", payload, false).map(data => data.json()).toPromise();
   }
 
 }

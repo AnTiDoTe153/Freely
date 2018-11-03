@@ -5,11 +5,12 @@
       <ion-list inset>
 
         <div class="title">
-          LOGIN
+          <!--LOGIN -->
+           <ion-img class = "logo"src="assets/imgs/logo.png" ></ion-img>
         </div>
-
+        <h3>Sign in</h3>
         <ion-item>
-          <ion-input placeholder="username" type="text" [(ngModel)]="account.username" name="username"></ion-input>
+          <ion-input placeholder="email" type="text" [(ngModel)]="account.email" name="email"></ion-input>
         </ion-item>
 
         <ion-item>
@@ -32,7 +33,7 @@
               <ion-spinner name="bubbles"></ion-spinner>
             </div>
             <div *ngIf="!isLoading">
-              Login
+              login
             </div>
           </button>
         </div>
