@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { UserDetailsPage } from '../pages/user-details/user-details';
 import {RegisterPage} from '../pages/register/register';
+import { EventsPage } from '../pages/events/events';
+import { OrganizationDetailsPage } from '../pages/organization-details/organization-details';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,7 +28,9 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Login', component: LoginPage },
       { title: 'Profile', component: UserDetailsPage },
-      { title: 'Register', component: RegisterPage }
+      { title: 'Register', component: RegisterPage },
+      { title: 'Events', component: EventsPage },
+      { title: 'Organization', component: OrganizationDetailsPage }
     ];
 
   }
