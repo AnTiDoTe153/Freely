@@ -1,0 +1,2 @@
+# ConkeEvents
+HackTM Sibiu Project
