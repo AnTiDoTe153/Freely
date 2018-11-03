@@ -1,0 +1,12 @@
+page-events {
+
+    ion-item{
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+
+    ion-card-content{
+        display: grid;
+        grid-template-columns: 70% 30%;
+    }
+}
