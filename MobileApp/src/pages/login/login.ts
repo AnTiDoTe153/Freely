@@ -17,7 +17,7 @@ import { LoginProvider } from '../../providers/login/login';
 export class LoginPage {
 
   private account: any = {
-    username: "",
+    email: "",
     password: ""
   };
   private rememberPass: boolean = false;
@@ -36,7 +36,7 @@ export class LoginPage {
     }
 
     if(this.rememberPass){
-      this.account.username=localStorage.getItem("username");
+      this.account.email=localStorage.getItem("email");
       this.account.password=localStorage.getItem("password");
     }
 
@@ -51,13 +51,13 @@ export class LoginPage {
   }
 
   doLogin(){
-    this.loginProvider.login(this.account.username, this.account.password).then(result =>{
+    this.loginProvider.login(this.account.email, this.account.password).then(result =>{
       console.log(result);
     });
 
     localStorage.setItem("rememberPass",this.rememberPass.toString()); 
     if(this.rememberPass){
-      localStorage.setItem("username",this.account.username);
+      localStorage.setItem("email",this.account.email);
       localStorage.setItem("password",this.account.password);
       
     }
