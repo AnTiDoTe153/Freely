@@ -10,6 +10,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 #create app instance
 app = Flask(__name__)
 
+
 app.config.update(dict(
     FLASK_DEBUG = True,
     SECRET_KEY = 'development key',
@@ -24,11 +25,18 @@ def login_test():
         request_dict = request.get_json()
         if request_dict == None:
             print("Invalid data", sys.stderr)
-            return 'OK'
-        print(request_dict, sys.stderr)
+            return 'ERROR'
+        # print(request_dict, sys.stderr)
 
-        values = [request_dict['username'],
+        try:
+            values = [request_dict['username'],
                     request_dict['password']]
+        except KeyError:
+            print("Invalid data", sys.stderr)
+            return 'ERROR'
+
+        print("[ INFO ] Test user login: {}").format(values[0])
+        
         return 'OK'
 
 if __name__ == '__main__':
