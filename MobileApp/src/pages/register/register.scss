@@ -3,7 +3,21 @@ page-register {
         padding: 20px;
     }
 
+    ion-input{
+        color: map-get($colors, primary) !important;
+    }
+
+    ion-item-divider{
+        color: map-get($colors, primary) !important;
+    }
+
+    ion-label{
+        color: map-get($colors, primary) !important;
+    }
+
 }
+
+
 .submitBtn{
     margin-left: auto;
     margin-right: auto;
