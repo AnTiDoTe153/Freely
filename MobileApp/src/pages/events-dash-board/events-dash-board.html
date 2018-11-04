@@ -13,7 +13,7 @@
 
   <div class="mainEvent">
 
-    <ion-slides>
+    <ion-slides #slides>
       <ion-slide>
         <ion-card>
           <ion-card-content>
@@ -68,6 +68,15 @@
         </ion-card>
       </ion-slide>
     </ion-slides>
+
+  </div>
+
+  <div class="buttons">
+
+    <button (click)="onClickEvent('decline')" color="third" style="font-size: 25px; font-weight: bold;" ion-button>X</button>
+    <button (click)="onClickEvent('apply')" color="primary" style="font-size: 20px;" ion-button><ion-icon name="arrow-round-up"></ion-icon></button>
+    <button (click)="onClickEvent('favorite')" color="secondary" style="font-size: 20px;" ion-button><ion-icon name="star"></ion-icon></button>
+
 
   </div>
 
