@@ -20,4 +20,18 @@
 
 <ion-content padding>
 
+  <ion-list>
+      <ion-item text-wrap no-lines [color]="getItemColor(item)" *ngFor="let item of applicationList" tappable>
+          <div>
+            <p class="activity_summary" *ngIf="sortTitle == subs">
+             <b>Nume: </b> {{item.name}} {{item.surname}}
+            </p>
+            <p>
+              <b>Rating: </b> {{item.rating}}
+            </p>
+          </div>
+          <button *ngIf="item.status=='applied'" item-right color="primary" ion-button (click)="acceptUser(item)">{{'Accept'}}</button>
+        </ion-item>
+  </ion-list>
+
 </ion-content>
