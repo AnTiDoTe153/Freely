@@ -1,3 +1,47 @@
 page-event-organization-description {
-
-}
+        .coverImage{
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 28%;
+            border-radius: 0 0 5% 5%;
+        }
+        .innerContent{
+            padding: 10px;
+        }
+    
+        h2{
+            font-weight: bold;
+            color: black;    
+        }
+        .logo-rating{
+            font-size: 25px;
+            font-weight: bold;
+            color:map-get($colors, primary);
+            padding: 2px;
+            margin: 0px;
+            margin-right: 10px;
+        }
+        .logo-separator{
+            background-color:map-get($colors, primary);
+            height:2px;
+            margin: 10px;
+        }
+        .description{
+            border-radius: 2%;
+            margin: 5px;
+            min-height: 50px;
+            padding: 15px;
+            
+            p{
+                font-weight: bold;
+            }
+        }
+    
+        .contactInfo{
+            p{
+                color: black;
+                padding: 5px;
+            }
+        }
+    }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { EventOrganizationDescriptionPage } from '../event-organization-description/event-organization-description';
+import { EventParticipantsPage } from '../event-participants/event-participants';
 
 /**
  * Generated class for the EventManagementPage page.
@@ -14,8 +16,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EventManagementPage {
 
+  private event: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.event = navParams.get("event");
+    console.log(this.event);
   }
+
+  tab1Root = EventOrganizationDescriptionPage;
+  tab2Root = EventParticipantsPage;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventManagementPage');

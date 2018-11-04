@@ -14,6 +14,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EventParticipantsPage {
 
+  private event = this.navParams.data;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

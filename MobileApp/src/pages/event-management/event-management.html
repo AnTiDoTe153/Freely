@@ -1,5 +1,4 @@
-<ion-tabs>
-    <ion-tab [root]="tab1Root"></ion-tab>
-    <ion-tab [root]="tab2Root"></ion-tab>
-    <ion-tab [root]="tab3Root"></ion-tab>
+<ion-tabs color="primary">
+    <ion-tab tabTitle="General Info" [rootParams]="event" [root]="tab1Root">General info</ion-tab>
+    <ion-tab tabTitle="Applicants" [rootParams]="event" [root]="tab2Root">Applicants</ion-tab>
   </ion-tabs>

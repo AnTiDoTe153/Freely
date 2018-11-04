@@ -21,6 +21,8 @@ import { LoginProvider } from '../providers/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { RequestProvider } from '../providers/request/request';
 import { EventsProvider } from '../providers/events/events';
+import { EventOrganizationDescriptionPage } from '../pages/event-organization-description/event-organization-description';
+import { EventParticipantsPage } from '../pages/event-participants/event-participants';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { EventsProvider } from '../providers/events/events';
     EventsPage,
     CreateEventPage,
     EventManagementPage,
-    EventsDashBoardPage
+    EventsDashBoardPage,
+    EventOrganizationDescriptionPage,
+    EventParticipantsPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,9 @@ import { EventsProvider } from '../providers/events/events';
     EventsPage,
     CreateEventPage,
     EventManagementPage,
-    EventsDashBoardPage
+    EventsDashBoardPage,
+    EventOrganizationDescriptionPage,
+    EventParticipantsPage
   ],
   providers: [
     StatusBar,

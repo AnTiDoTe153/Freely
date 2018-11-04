@@ -6,13 +6,28 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>eventOrganizationDescription</ion-title>
-  </ion-navbar>
+    <ion-navbar color="primary">
+      <ion-buttons left>
+          <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button>
+      </ion-buttons>
+      <ion-title>Event Info</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
 
-</ion-header>
 
-
-<ion-content padding>
-
+  <ion-content>
+      <ion-img class="coverImage" src="assets/imgs/cover-hackTM.jpg"></ion-img>
+      <p class="logo-rating">
+          {{event.name}}
+      </p>
+      <hr class="logo-separator">
+      <div class="innerContent">
+      <div class="description">
+          <h3>Will take place on: {{event.date}}</h3>
+      </div>
+      
+    </div>
 </ion-content>

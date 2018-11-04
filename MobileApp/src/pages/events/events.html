@@ -16,7 +16,7 @@
     </ion-list-header>
 
    
-      <ion-card *ngFor="let item of eventList" style="width: 95%">
+      <ion-card (click)="goToEventDetails(item)" *ngFor="let item of eventList" style="width: 95%">
         <ion-card-content>
           <div>
             <p>Name: {{item.name}}</p>

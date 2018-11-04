@@ -10,6 +10,7 @@ import { RegisterPage } from '../pages/register/register';
 import { EventsPage } from '../pages/events/events';
 import { OrganizationDetailsPage } from '../pages/organization-details/organization-details';
 import { EventsDashBoardPage } from '../pages/events-dash-board/events-dash-board';
+import { EventManagementPage } from '../pages/event-management/event-management';
 
 @Component({
   templateUrl: 'app.html'
@@ -32,7 +33,8 @@ export class MyApp {
       { title: 'Register', component: RegisterPage },
       { title: 'Events', component: EventsPage },
       { title: 'Organization', component: OrganizationDetailsPage },
-      { title: 'Event Dashboard', component: EventsDashBoardPage }
+      { title: 'Event Dashboard', component: EventsDashBoardPage },
+      { title: 'Event Management', component: EventManagementPage }
     ];
 
   }

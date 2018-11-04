@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CreateEventPage } from '../../pages/create-event/create-event';
 import { ModalController } from 'ionic-angular';
+import { EventManagementPage } from '../event-management/event-management';
 
 /**
  * Generated class for the EventsPage page.
@@ -40,6 +41,10 @@ export class EventsPage {
   openCreateEventModal(){
     let modal = this.modalController.create(CreateEventPage);
     modal.present();
+  }
+
+  goToEventDetails(event: any){
+    this.navCtrl.setRoot(EventManagementPage, {event: event});
   }
 
 }
