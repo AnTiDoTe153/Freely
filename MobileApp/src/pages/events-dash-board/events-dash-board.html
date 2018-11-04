@@ -12,15 +12,62 @@
 
 
   <div class="mainEvent">
-    <ion-card>
-      <ion-card-content>
-        <ion-img src="assets/imgs/1.jpg">
 
-        </ion-img>
-          {{currentEvent?.name}}
-        {{currentEvent?.description}}
-      </ion-card-content>
-    </ion-card>
+    <ion-slides>
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            <ion-img src="assets/imgs/1.jpg">
+            </ion-img>
+    
+            <div class="description">
+              {{currentEvent?.name}}
+            </div> 
+            <div class="eventDate">
+              {{currentEvent?.date}}
+            </div>
+    
+            
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            <ion-img src="assets/imgs/1.jpg">
+            </ion-img>
+    
+            <div class="description">
+              {{currentEvent?.name}}
+            </div> 
+            <div class="eventDate">
+              {{currentEvent?.date}}
+            </div>
+    
+            
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            <ion-img src="assets/imgs/1.jpg">
+            </ion-img>
+    
+            <div class="description">
+              {{currentEvent?.name}}
+            </div> 
+            <div class="eventDate">
+              {{currentEvent?.date}}
+            </div>
+    
+            
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
 
   </div>
 

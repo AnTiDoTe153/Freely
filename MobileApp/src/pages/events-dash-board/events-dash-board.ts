@@ -16,7 +16,11 @@ import { EventsProvider } from '../../providers/events/events';
 export class EventsDashBoardPage {
 
   private eventsList: Array<any>;
-  private currentEvent: any;
+  private currentEvent: any = {
+    name: "Dream festival",
+    description: "test",
+    date: "4 - 7 nov 2018"
+  };
 
   constructor(public eventsProvider: EventsProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -24,7 +28,7 @@ export class EventsDashBoardPage {
   ionViewDidLoad() {
     this.eventsProvider.getEvents().then(data=>{
       this.eventsList = data;
-      this.currentEvent = this.eventsList[0];
+      //this.currentEvent = this.eventsList[0];
     });
   }
 
