@@ -325,7 +325,102 @@ def createApplication():
     except:
         print("[ ERROR ] Invalid data", sys.stderr)
         return '{"status":"ERROR"}'
+
+@app.route('/modifyStatusForApplication', methods=['POST'])
+def modifyStatusForApplication():
+    request_dict = request.get_json()
+    if request_dict == None:
+        print("[ ERROR ] Invalid data", sys.stderr)
+        return '{"status":"ERROR"}'
     
+    try:
+        values = [request_dict['email'],
+        request_dict['event'],
+        request_dict['status']]
+
+        for element in values:
+            if element == "":
+                print("[ ERROR ] Invalid data", sys.stderr)
+                return '{"status":"ERROR"}'
+
+    except KeyError:
+        print("[ ERROR ] Invalid json", sys.stderr)
+        return '{"status":"ERROR"}'
+
+    try:
+        db = get_db()
+        query = 'select userId from Users where email=\'' + values[0] + '\''
+        for row in db.execute(query):
+            userId=row[0]
+            break
+        print(userId)
+        query4 = 'select eventId from Events where name=\'' + values[1] + '\''
+        for row in db.execute(query4):
+            eventId = row[0]
+            break
+        print(eventId)
+
+        print(values[2])
+
+        if values[2] == 'accepted':
+            query2 = 'update Applications set statusId=3 where userid=' + userId + ' and eventid=' + eventId
+
+            db.execute(query2)
+            db.commit()
+            return '{"status":"OK"}'
+        else:
+            print("hello")
+            query3 = 'delete from applications where userId=\'' + userId + '\''
+            db.execute(query3)
+            db.commit()
+            return '{"status":"OK"}' 
+
+    except:
+        print("[ ERROR ] Invalid data", sys.stderr)
+        return '{"status":"ERROR"}'
+
+
+@app.route('/getEvents', methods=['GET'])
+def getEvents():
+    try:
+        db = get_db()
+     
+        query = 'select name, description, date from Events'
+        events = []
+        for row in db.execute(query):
+            evt = {
+                "name" : row[0],
+                "description" : row[1],
+                "date" : row[2]
+            }
+            events.append(evt)
+        res = jsonify(events)
+        print(res)
+        return res
+    except:
+        print("[ ERROR ]Error at getting events")
+        return '{"status":"ERROR"}'
+
+
+
+@app.route('/getInterestedEventsUser', methods=['GET'])
+def getInterestedEventsUser():
+    pass
+
+@app.route('/getPendingEventsUser', methods=['GET'])
+def getPendingEventsUser():
+    pass
+
+#for organisation
+@app.route('/getPendingUsersForEvent', methods=['GET'])
+def getPendingUsersForEvent():
+    pass
+
+@app.route('/getAcceptedUsersForEvent', methods=['GET'])
+def getAcceptedUsersForEvent():
+    pass
+
+
 
 if __name__ == '__main__':
     
