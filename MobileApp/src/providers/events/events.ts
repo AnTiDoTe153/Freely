@@ -27,4 +27,8 @@ export class EventsProvider {
   
   }
 
+  getEvents(){
+    return this.requestProvider.buildGet("getEvents").map(data => data.json()).toPromise();
+  }
+
 }

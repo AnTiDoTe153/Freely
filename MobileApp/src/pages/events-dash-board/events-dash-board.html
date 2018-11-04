@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Events Dashboard</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+
+
+  <div class="mainEvent">
+    <ion-card>
+      <ion-card-content>
+        <ion-img src="assets/imgs/1.jpg">
+
+        </ion-img>
+          {{currentEvent?.name}}
+        {{currentEvent?.description}}
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
+</ion-content>

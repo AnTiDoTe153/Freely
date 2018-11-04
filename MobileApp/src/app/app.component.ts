@@ -9,6 +9,7 @@ import { UserDetailsPage } from '../pages/user-details/user-details';
 import { RegisterPage } from '../pages/register/register';
 import { EventsPage } from '../pages/events/events';
 import { OrganizationDetailsPage } from '../pages/organization-details/organization-details';
+import { EventsDashBoardPage } from '../pages/events-dash-board/events-dash-board';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,7 +31,8 @@ export class MyApp {
       { title: 'Profile', component: UserDetailsPage },
       { title: 'Register', component: RegisterPage },
       { title: 'Events', component: EventsPage },
-      { title: 'Organization', component: OrganizationDetailsPage }
+      { title: 'Organization', component: OrganizationDetailsPage },
+      { title: 'Event Dashboard', component: EventsDashBoardPage }
     ];
 
   }

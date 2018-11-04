@@ -14,6 +14,7 @@ import { OrganizationDetailsPage } from '../pages/organization-details/organizat
 import { EventsPage } from '../pages/events/events';
 import { CreateEventPage } from '../pages/create-event/create-event';
 import { EventManagementPage } from '../pages/event-management/event-management';
+import { EventsDashBoardPage } from '../pages/events-dash-board/events-dash-board';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginProvider } from '../providers/login/login';
@@ -31,7 +32,8 @@ import { EventsProvider } from '../providers/events/events';
     OrganizationDetailsPage,
     EventsPage,
     CreateEventPage,
-    EventManagementPage
+    EventManagementPage,
+    EventsDashBoardPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { EventsProvider } from '../providers/events/events';
     OrganizationDetailsPage,
     EventsPage,
     CreateEventPage,
-    EventManagementPage
+    EventManagementPage,
+    EventsDashBoardPage
   ],
   providers: [
     StatusBar,
