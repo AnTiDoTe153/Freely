@@ -108,6 +108,7 @@ export class RegisterPage {
     {
       this.goToNextSlide();
       this.goToNextSlide();
+      this.goToNextSlide();
     }
   }
 
@@ -141,7 +142,7 @@ export class RegisterPage {
     }); 
   }
   doRegisterCompany(){
-    this.registerProvider2.registerCompany(this.company.email, this.company.password, this.company.name, this.volunteer.description).then(result =>{
+    this.registerProvider2.registerCompany(this.company.email, this.company.password, this.company.name, this.company.description).then(result =>{
       console.log(result);
       if(result.status == "OK"){
         this.navCtrl.setRoot(LoginPage);

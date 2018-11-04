@@ -4,8 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HttpModule} from '@angular/http';
-
-
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -19,6 +17,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginProvider } from '../providers/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { RequestProvider } from '../providers/request/request';
+import { RegisterProvider } from '../providers/register/register';
+import { RegisterCompanyProvider } from '../providers/register-company/register-company';
 import { EventsProvider } from '../providers/events/events';
 
 @NgModule({
@@ -57,7 +57,9 @@ import { EventsProvider } from '../providers/events/events';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
     RequestProvider,
-    EventsProvider
+    EventsProvider,
+    RegisterProvider,
+    RegisterCompanyProvider
   ]
 })
 export class AppModule {}
