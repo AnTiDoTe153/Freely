@@ -18,7 +18,7 @@
             <p>Date: {{item.date}}</p>
           </div>
 
-          <ion-img class="coverImage" src="assets/imgs/cover-hackTM.jpg"></ion-img>
+          <ion-img class="coverImage" [src]= "getItemImage(item)"></ion-img>
         </ion-card-content>
       </ion-card>
    

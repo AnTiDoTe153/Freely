@@ -19,7 +19,7 @@
 
 
   <ion-content>
-      <ion-img class="coverImage" src="assets/imgs/cover-hackTM.jpg"></ion-img>
+      <ion-img class="coverImage" [src]="getItemImage()"></ion-img>
       <p class="logo-rating">
           {{event.name}}
       </p>

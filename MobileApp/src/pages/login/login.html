@@ -6,7 +6,7 @@
 
         <ion-img style="background: transparent; height: 200px; width: 250px !important;" src="assets/imgs/logo2.png"></ion-img>
 
-        <h2>Sign in</h2>
+        <h2 class="signIn" color="primary">Sign in</h2>
         <ion-item>
           <ion-input placeholder="email" type="text" [(ngModel)]="account.email" name="email"></ion-input>
         </ion-item>
@@ -17,7 +17,7 @@
 
         <div class="passItem" tappable (click)="togglePass()">
           <ion-row>
-            <ion-icon style="font-size:1.3em;color:black;" [name]="passIcon()"></ion-icon> 
+            <ion-icon color="primary" style="font-size:1.3em;" [name]="passIcon()"></ion-icon> 
             <div class="passRem">
               remember password
             </div>
@@ -41,9 +41,9 @@
       </ion-list>
     </form>
 
+    <p (click)="openRegisterPage()" class="registerText">
+        Don't have an account?
+      </p>
   </div>
 
-  <p (click)="openRegisterPage()" class="registerText">
-    Don't have an account?
-  </p>
 </ion-content>

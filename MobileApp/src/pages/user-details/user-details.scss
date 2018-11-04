@@ -18,6 +18,11 @@ page-user-details {
         text-align: center;
     }
 
+    .info{
+        color: map-get($colors, primary);
+        font-size: 20px;
+    }
+
     .logo-name{
         font-size: 30px;
         color:map-get($colors, primary);

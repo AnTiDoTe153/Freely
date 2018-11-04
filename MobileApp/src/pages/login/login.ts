@@ -100,7 +100,7 @@ export class LoginPage {
   }
 
   movetoregisterpage(){
-    this.navCtrl.setRoot(RegisterPage);
+    this.navCtrl.push(RegisterPage);
   }
 
 }

@@ -57,7 +57,7 @@ export class MyApp {
         return false;
       }
     }
-    if(p.title == 'Event Dashboard'){
+    if(p.title == 'Dashboard'){
       if(sessionStorage.getItem("type") != "volunteer"){
         return false;
       }
