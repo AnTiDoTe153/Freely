@@ -18,7 +18,22 @@ import { ViewChild } from '@angular/core';
 export class EventsDashBoardPage {
 
   @ViewChild(Slides) slides: Slides;
-  private eventsList: Array<any>;
+  private eventsList: Array<any> = [ {
+    name: "DreamArt Festival",
+    description: "Dreaming",
+    date: "12 Dec 2018"
+  },
+  {
+    name: "Spooky Party",
+    description: "Spooky",
+    date: "28 Nov 2018"
+  },
+  {
+    name: "Feel The Real Festival",
+    description: "Real",
+    date: "02 Ian 2019"
+  }];
+
   private currentEvent: any = {
     name: "Dream festival",
     description: "test",
@@ -26,6 +41,18 @@ export class EventsDashBoardPage {
   };
 
   constructor(public eventsProvider: EventsProvider, public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  getImagePicture(item){
+    if(item.name == "DreamArt Festival"){
+      return "assets/imgs/1.jpg";
+    }
+    if(item.name == "Spooky Party"){
+      return "assets/imgs/3.jpg";
+    }
+    if(item.name == "Feel The Real Festival"){
+      return "assets/imgs/2.jpg";
+    }
   }
 
   onClickEvent(type: string){
@@ -43,7 +70,7 @@ export class EventsDashBoardPage {
 
   ionViewDidLoad() {
     this.eventsProvider.getEvents().then(data=>{
-      this.eventsList = data;
+      //this.eventsList = data;
       //this.currentEvent = this.eventsList[0];
     });
   }
