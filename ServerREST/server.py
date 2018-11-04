@@ -440,20 +440,22 @@ def getUsersForEvent():
             eventId = row[0]
             break
 
-        print(eventId)
+        
 
         userIds = []
-        #query1 = 'select userid from Applications where eventId=\'' + eventId + '\''
+        
+        #query1 = 'select userId from applications where eventId=\'' + eventId + '\''
         #print(query1)
         
-        for row2 in db.execute('select userId from Applications where eventId=?', (eventId)):
+
+        for row2 in db.execute('select userId from Applications where eventId=%s' %eventId):
             userIds.append(row2[0])
-            print(userIds)
+            
         users=[]
         for userId in userIds:
-            query2 = 'select firstname, lastname, email, birthdate, rating, description from Users where userid=3' 
-            query3 = 'select statusId from Applications where userId=?' + userId
-            for row4 in db.execute(query3):
+            #query2 = 'select firstname, lastname, email, birthdate, rating, description from Users where userid=3' 
+            #query3 = 'select statusId from Applications where userId=?' + userId
+            for row4 in db.execute('select statusId from Applications where userId=%s' %userId):
                 statusId = row4[0]
                 if statusId == 1:
                     continue
@@ -462,7 +464,7 @@ def getUsersForEvent():
                         status = "pending"
                     if statusId == 3:
                         status = "accepted"
-                    for row3 in db.execute(query2):
+                    for row3 in db.execute('select firstname, lastname, email, birthdate, rating, description from Users where userid=%s' %userId):
                     
                         tmp = {
                             "firstName" : row3[0],
