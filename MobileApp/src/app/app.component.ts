@@ -3,7 +3,6 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { UserDetailsPage } from '../pages/user-details/user-details';
 import { RegisterPage } from '../pages/register/register';
@@ -11,6 +10,7 @@ import { EventsPage } from '../pages/events/events';
 import { OrganizationDetailsPage } from '../pages/organization-details/organization-details';
 import { EventsDashBoardPage } from '../pages/events-dash-board/events-dash-board';
 import { EventManagementPage } from '../pages/event-management/event-management';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,25 +18,71 @@ import { EventManagementPage } from '../pages/event-management/event-management'
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(private alertController: AlertController, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Login', component: LoginPage },
       { title: 'Profile', component: UserDetailsPage },
-      { title: 'Register', component: RegisterPage },
-      { title: 'Events', component: EventsPage },
       { title: 'Organization', component: OrganizationDetailsPage },
-      { title: 'Event Dashboard', component: EventsDashBoardPage },
-      { title: 'Event Management', component: EventManagementPage }
+      { title: 'Events', component: EventsPage },
+      { title: 'Dashboard', component: EventsDashBoardPage }
     ];
 
+  }
+
+  enableSwipe(){
+    let view = this.nav.getActive();
+    let name = "";
+    if (view) {
+      name = view.component.name;
+    }
+    if ( name == "LoginPage")
+      return false;
+    return true;
+  }
+
+  enableMenuOption(p){
+    if(p.title == 'Organization'){
+      if(sessionStorage.getItem("type") == "volunteer"){
+        return false;
+      }
+    }
+    if(p.title == 'Profile'){
+      if(sessionStorage.getItem("type") != "volunteer"){
+        return false;
+      }
+    }
+    if(p.title == 'Event Dashboard'){
+      if(sessionStorage.getItem("type") != "volunteer"){
+        return false;
+      }
+    }
+
+    if(p.title == 'Events'){
+      if(sessionStorage.getItem("type") == "volunteer"){
+        return false;
+      }
+    }
+
+
+    return true;
+    
+  }
+
+  logout(){
+    var alert = this.alertController.create();
+    alert.setTitle("Log out");
+    alert.setMessage("Are you sure you want to log out?");
+    alert.addButton({text: "Yes", handler: () =>{
+      this.nav.setRoot(LoginPage);
+    }});
+    alert.addButton("No");
+    alert.present();
   }
 
   initializeApp() {

@@ -1,4 +1,4 @@
-<ion-menu [content]="content">
+<ion-menu [swipeEnabled] = "enableSwipe()" [content]="content">
   <ion-header color="primary">
     <ion-toolbar color="primary">
       <ion-title>Menu</ion-title>
@@ -7,8 +7,13 @@
 
   <ion-content>
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <div *ngFor="let p of pages">
+      <button *ngIf = "enableMenuOption(p)" menuClose ion-item (click)="openPage(p)">
         {{p.title}}
+      </button>
+      </div>
+      <button ion-item menuClose (click)="logout()">
+        Log out
       </button>
     </ion-list>
   </ion-content>

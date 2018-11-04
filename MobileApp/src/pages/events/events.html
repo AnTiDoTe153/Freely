@@ -10,13 +10,8 @@
 
 <ion-content padding>
 
-  <ion-list>
-    <ion-list-header class="eventHeader" no-lines>
-      {{'Your events'}}
-    </ion-list-header>
-
-   
-      <ion-card (click)="goToEventDetails(item)" *ngFor="let item of eventList" style="width: 95%">
+  <ion-list>   
+      <ion-card color="primary" (click)="goToEventDetails(item)" *ngFor="let item of eventList" style="width: 95%">
         <ion-card-content>
           <div>
             <p>Name: {{item.name}}</p>

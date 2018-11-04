@@ -4,7 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HttpModule} from '@angular/http';
-import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { UserDetailsPage } from '../pages/user-details/user-details';
@@ -27,7 +26,6 @@ import { EventParticipantsPage } from '../pages/event-participants/event-partici
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     LoginPage,
     RegisterPage,
     UserDetailsPage,
@@ -47,7 +45,6 @@ import { EventParticipantsPage } from '../pages/event-participants/event-partici
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     LoginPage, 
     RegisterPage,
     LoginPage,

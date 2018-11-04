@@ -4,6 +4,7 @@ import { RegisterPage } from '../register/register';
 import { LoginProvider } from '../../providers/login/login';
 import { AlertController } from 'ionic-angular';
 import { UserDetailsPage } from '../../pages/user-details/user-details';
+import { OrganizationDetailsPage} from '../../pages/organization-details/organization-details';
 
 /**
  * Generated class for the LoginPage page.
@@ -70,7 +71,12 @@ export class LoginPage {
         }else{
           sessionStorage.setItem("name", result.data.name);
         }
-        this.navCtrl.setRoot(UserDetailsPage);
+        if(sessionStorage.getItem("type") == "volunteer"){
+          this.navCtrl.setRoot(UserDetailsPage);
+        }else{
+          this.navCtrl.setRoot(OrganizationDetailsPage);
+        }
+        
       }else{
         this.displayErrorAlert("Invalid login data!");
       }
