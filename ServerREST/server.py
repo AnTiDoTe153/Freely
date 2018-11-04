@@ -338,6 +338,11 @@ def modifyStatusForApplication():
         request_dict['event'],
         request_dict['status']]
 
+        if values[2] == "accepted":
+            statusId = 3
+        else:
+            statusId = -1
+
         for element in values:
             if element == "":
                 print("[ ERROR ] Invalid data", sys.stderr)
@@ -353,19 +358,14 @@ def modifyStatusForApplication():
         for row in db.execute(query):
             userId=row[0]
             break
-        print(userId)
+
         query4 = 'select eventId from Events where name=\'' + values[1] + '\''
         for row in db.execute(query4):
             eventId = row[0]
             break
-        print(eventId)
 
-        print(values[2])
-
-        if values[2] == 'accepted':
-            query2 = 'update Applications set statusId=3 where userid=' + userId + ' and eventid=' + eventId
-
-            db.execute(query2)
+        if statusId == 3:
+            db.execute('update applications set statusId=? where userid=? and eventid=?', (statusId, userId, eventId))
             db.commit()
             return '{"status":"OK"}'
         else:
@@ -403,7 +403,7 @@ def getEvents():
 
 
 
-@app.route('/getInterestedEventsUser', methods=['GET'])
+@app.route('/getEventsForUser', methods=['GET'])
 def getInterestedEventsUser():
     pass
 
@@ -412,10 +412,79 @@ def getPendingEventsUser():
     pass
 
 #for organisation
-@app.route('/getPendingUsersForEvent', methods=['GET'])
-def getPendingUsersForEvent():
-    pass
+@app.route('/getUsersForEvent', methods=['POST'])
+def getUsersForEvent():
+    request_dict = request.get_json()
+    if request_dict == None:
+        print("[ ERROR ] Invalid json", sys.stderr)
+        return '{"status":"ERROR"}'
+    
+    #TO-DO return category
+    try:
+        values = request_dict['name']
 
+        #TO-DO description can be null
+        if values == "":
+            print("[ ERROR ] Invalid data", sys.stderr)
+            return '{"status":"ERROR"}'
+
+    except KeyError:
+        print("Invalid data", sys.stderr)
+        return '{"status":"ERROR"}'
+
+    try:
+        db = get_db()
+
+        query = 'select eventid from Events where name=\'' + values + '\''
+        for row in db.execute(query):
+            eventId = row[0]
+            break
+
+        print(eventId)
+
+        userIds = []
+        #query1 = 'select userid from Applications where eventId=\'' + eventId + '\''
+        #print(query1)
+        
+        for row2 in db.execute('select userId from Applications where eventId=?', (eventId)):
+            userIds.append(row2[0])
+            print(userIds)
+        users=[]
+        for userId in userIds:
+            query2 = 'select firstname, lastname, email, birthdate, rating, description from Users where userid=3' 
+            query3 = 'select statusId from Applications where userId=?' + userId
+            for row4 in db.execute(query3):
+                statusId = row4[0]
+                if statusId == 1:
+                    continue
+                else:
+                    if statusId == 2:
+                        status = "pending"
+                    if statusId == 3:
+                        status = "accepted"
+                    for row3 in db.execute(query2):
+                    
+                        tmp = {
+                            "firstName" : row3[0],
+                            "lastName" : row3[1],
+                            "email" : row3[2],
+                            "birthdate" : row3[3],
+                            "rating" : row3[4],
+                            "description" : row3[5],
+                            "status" : status
+                        }
+                        users.append(tmp)
+        result = {
+            "users" : users,
+            "status" : "OK"
+        }
+        res = jsonify(result)
+        print(res)
+        return res
+    except:
+        print("Invalid data", sys.stderr)
+        return '{"status":"ERROR"}'
+    
 @app.route('/getAcceptedUsersForEvent', methods=['GET'])
 def getAcceptedUsersForEvent():
     pass
