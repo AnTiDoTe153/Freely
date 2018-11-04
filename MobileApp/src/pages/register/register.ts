@@ -101,15 +101,7 @@ export class RegisterPage {
   }
 
   goToActualRegistration(){
-    if(this.input.account == "Volunteer" ){
       this.goToNextSlide();
-    }
-    else if(this.input.account == "Company")
-    {
-      this.goToNextSlide();
-      this.goToNextSlide();
-      this.goToNextSlide();
-    }
   }
 
   goToUniversitySlide(){

@@ -41,7 +41,7 @@ export class MyApp {
     if (view) {
       name = view.component.name;
     }
-    if ( name == "LoginPage")
+    if ( name == "LoginPage" || name == 'RegisterPage')
       return false;
     return true;
   }

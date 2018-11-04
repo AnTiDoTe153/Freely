@@ -1,8 +1,5 @@
 <ion-header>
   <ion-navbar color="primary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>Register</ion-title>
   </ion-navbar>
 </ion-header>
@@ -28,7 +25,7 @@
 
 
 
-        <ion-slide>
+        <ion-slide *ngIf="input.account == 'Volunteer'">
             <div class="registerWrapper">
                 <ion-list>
                   <form [formGroup]="registerForm1" (ngSubmit)="goToActualRegistration2()">                   
@@ -52,7 +49,7 @@
               </div>
         </ion-slide>
 
-        <ion-slide>
+        <ion-slide *ngIf="input.account == 'Volunteer'">
             <div class="registerWrapper">
                 <ion-list>
                   <form [formGroup]="registerForm2" (ngSubmit)="doRegisterUser()">
@@ -88,7 +85,7 @@
         <form [formGroup]="registerForm3" (ngSubmit)="doRegisterCompany()">
             <ion-item-divider>
                 <ion-icon item-start name="person"></ion-icon>
-                {{ "User info" }}
+                {{ "Organisation info" }}
               </ion-item-divider>                    
               <ion-item>
                 <ion-input placeholder="EMAIL" [(ngModel)]="company.email" name="name" formControlName="email" type="text"></ion-input>

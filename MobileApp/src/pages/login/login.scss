@@ -20,6 +20,16 @@ page-login {
             padding: 0px !important;
         }
 
+        .registerText{
+            position: fixed;
+            bottom: 10px;
+            font-weight: bold;
+            text-decoration: underline;
+            text-align: center;
+            left: 30%;
+            color:  map-get($colors, primary);
+        }
+
         ion-item {
             border-radius: 5px !important;
             padding-left: 0px !important;

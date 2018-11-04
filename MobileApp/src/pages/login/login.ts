@@ -53,6 +53,10 @@ export class LoginPage {
     return "square";
   }
 
+  openRegisterPage(){
+    this.navCtrl.setRoot(RegisterPage);
+  }
+
   displayErrorAlert(message: string){
     var alert = this.alertController.create();
     alert.setTitle("Error");
