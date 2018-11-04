@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import {AlertController } from 'ionic-angular';
+import {RegisterProvider} from '../../providers/register/register';
+import {RegisterCompanyProvider} from '../../providers/register-company/register-company';
+import { LoginProvider } from '../../providers/login/login';
 
 
 /**
@@ -20,8 +23,9 @@ export class RegisterPage {
   private registerForm0: FormGroup;
   private registerForm1: FormGroup;
   private registerForm2: FormGroup;
+  private registerForm3: FormGroup;
   @ViewChild(Slides) slides: Slides;
-  constructor(public alertController: AlertController, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
+  constructor(private registerProvider2: RegisterCompanyProvider, private registerProvider: RegisterProvider, public alertController: AlertController, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
     
     this.registerForm0 = this.formBuilder.group({
       account: [''],
@@ -38,6 +42,12 @@ export class RegisterPage {
       name: [''],
       surname: [''],
       birthdate: [''],
+      description: [''],   
+    });
+    this.registerForm3 = this.formBuilder.group({
+      email: [''],
+      password: [''],
+      name: [''],
       description: [''],   
     });
   }
@@ -58,6 +68,13 @@ export class RegisterPage {
     password: "",
     id: "",
     birthdate: "",
+    description: ""
+  };
+
+  private company: any = {
+    name: "",
+    email: "",
+    password: "",
     description: ""
   };
 
@@ -91,6 +108,7 @@ export class RegisterPage {
     {
       this.goToNextSlide();
       this.goToNextSlide();
+      this.goToNextSlide();
     }
   }
 
@@ -112,5 +130,25 @@ export class RegisterPage {
     alert.setMessage(errorMessage);
     alert.addButton("Ok");
     alert.present();
+  }
+  doRegisterUser(){
+    this.registerProvider.register(this.volunteer.email, this.volunteer.password, this.volunteer.name, this.volunteer.surname, this.volunteer.birthdate, this.volunteer.description).then(result =>{
+      console.log(result);
+      if(result.status == "OK"){
+        this.navCtrl.setRoot(LoginPage);
+      }else{
+        this.showErrorAlert("Invalid login data!");
+      }
+    }); 
+  }
+  doRegisterCompany(){
+    this.registerProvider2.registerCompany(this.company.email, this.company.password, this.company.name, this.company.description).then(result =>{
+      console.log(result);
+      if(result.status == "OK"){
+        this.navCtrl.setRoot(LoginPage);
+      }else{
+        this.showErrorAlert("Invalid login data!");
+      }
+    }); 
   }
 }

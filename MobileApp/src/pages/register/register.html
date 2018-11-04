@@ -1,12 +1,15 @@
-
-
-
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content padding>
     <ion-slides>
       <ion-slide>
-          
-
         <div class="registerWrapper">
           <ion-list>             
             <form [formGroup]="registerForm0" (ngSubmit)="goToActualRegistration()">
@@ -39,7 +42,7 @@
                       </ion-item>
               
                     <ion-item>
-                      <ion-input placeholder="PASSWORD" [(ngModel)]="volunteer.password" name="password" formControlName="password" type="text"></ion-input>
+                      <ion-input placeholder="PASSWORD" [(ngModel)]="volunteer.password" name="password" formControlName="password" type="password"></ion-input>
                     </ion-item>             
                    
 
@@ -52,7 +55,7 @@
         <ion-slide>
             <div class="registerWrapper">
                 <ion-list>
-                  <form [formGroup]="registerForm2" (ngSubmit)="goToUniversitySlide()">
+                  <form [formGroup]="registerForm2" (ngSubmit)="doRegisterUser()">
                       <ion-item-divider>
                           <ion-icon item-start name="person"></ion-icon>
                           {{ "User info" }}
@@ -78,6 +81,33 @@
         
         
 <!--de aici incep slide-urile de companie--> 
+
+<ion-slide>
+  <div class="registerWrapper">
+      <ion-list>
+        <form [formGroup]="registerForm3" (ngSubmit)="doRegisterCompany()">
+            <ion-item-divider>
+                <ion-icon item-start name="person"></ion-icon>
+                {{ "User info" }}
+              </ion-item-divider>                    
+              <ion-item>
+                <ion-input placeholder="EMAIL" [(ngModel)]="company.email" name="name" formControlName="email" type="text"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input placeholder="PASSWORD" [(ngModel)]="company.password" name="password" formControlName="password" type="password"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input placeholder="NAME" [(ngModel)]="company.name" name="name" formControlName="name" type="text"></ion-input>
+              </ion-item>     
+              <ion-item>
+                  <ion-input placeholder="DESCRIPTION" [(ngModel)]="company.description" name="description" formControlName="description" type="text"></ion-input>
+              </ion-item>  
+          
+          <button ion-button color="button" block type="submit" class="submitBtn">Next</button>
+          </form>
+      </ion-list>
+    </div>
+</ion-slide>
 
 
     </ion-slides>
