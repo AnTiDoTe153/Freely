@@ -45,7 +45,7 @@ page-user-details {
 
     .logo-desc{
         font-size: 20px;
-        color:map-get($colors, primary);
+        color:map-get($colors, primary) !important;
         padding-left: 20px;
         padding-right: 20px;
         text-align: center;
@@ -53,7 +53,7 @@ page-user-details {
     }
     .contactInfo{
         p{
-            color: black;
+            color: map-get($colors, primary) !important;
             padding: 5px;
         }
     }

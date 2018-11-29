@@ -3,8 +3,9 @@ page-organization-details {
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        height: 28%;
+        height: 28% !important;
         border-radius: 0 0 5% 5%;
+        overflow: hidden;
     }
     .innerContent{
         padding: 10px;
@@ -12,7 +13,7 @@ page-organization-details {
 
     h2{
         font-weight: bold;
-        color: black;    
+        color: map-get($colors, primary);    
     }
     .logo-rating{
         font-size: 25px;
@@ -34,14 +35,20 @@ page-organization-details {
         padding: 15px;
         
         p{
-            font-weight: bold;
+            color: map-get($colors, primary);
+            font-size: 15px;
         }
     }
 
     .contactInfo{
         p{
-            color: black;
+            color: map-get($colors, primary);
             padding: 5px;
         }
+    }
+
+    .info{
+        color: map-get($colors, primary);
+        font-size: 20px;
     }
 }

@@ -290,7 +290,6 @@ def createApplication():
 
         #type can be interested or pending if user applied
 
-        #TO-DO description can be null
         for element in values:
             if element == "":
                 print("[ ERROR ] Invalid data", sys.stderr)

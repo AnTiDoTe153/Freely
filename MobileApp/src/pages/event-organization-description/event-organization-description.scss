@@ -5,6 +5,7 @@ page-event-organization-description {
             margin-right: auto;
             height: 28%;
             border-radius: 0 0 5% 5%;
+            overflow: hidden; 
         }
         .innerContent{
             padding: 10px;
@@ -12,13 +13,13 @@ page-event-organization-description {
     
         h2{
             font-weight: bold;
-            color: black;    
+            color: map-get($colors, primary);    
         }
         .logo-rating{
             font-size: 25px;
             font-weight: bold;
             color:map-get($colors, primary);
-            padding: 2px;
+            padding: 10px;
             margin: 0px;
             margin-right: 10px;
         }
@@ -40,8 +41,8 @@ page-event-organization-description {
     
         .contactInfo{
             p{
-                color: black;
-                padding: 5px;
+                color: map-get($colors, primary);
+                padding: 15px;
             }
         }
     }

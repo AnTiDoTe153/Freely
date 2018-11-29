@@ -16,10 +16,10 @@ export class OrganizationDetailsPage {
 
 
   organizationName: string = "Artsy Events";
-  description: string = "We bring the artsy to the people";
-  email: string = "hackTM@gmail.com";
+  description: string = "We bring the artsy to the people!";
+  email: string = "artsyevents@gmail.com";
   phone: string = "0745048848";
-  website: string = "http://www.hackTM.com";
+  website: string = "http://www.artsyevents.com";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

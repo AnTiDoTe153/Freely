@@ -1,0 +1,15 @@
+curl --request POST http://0.0.0.0:5000/loginTest --header "Content-Type:application/json" --data '{"username":"aaaa", "password":"dddd"}'
+
+curl --request POST http://0.0.0.0:5000/registerUser --header "Content-Type:application/json" --data '{"email":"test", "password":"test", "firstname":"test", "lastname":"test", "birthdate":"01.01.2000", "description":"test!"}'
+
+curl --request POST http://0.0.0.0:5000/registerOrganisation --header "Content-Type:application/json" --data '{"email":"test", "password":"test", "name":"test", "description":"test!"}'
+
+curl --request POST http://0.0.0.0:5000/createEvent --header "Content-Type:application/json" --data '{"name":"test", "date":"24.01.2018", "organisation":"test", "description":"test event!", "category":"IT"}'
+
+curl --request POST http://0.0.0.0:5000/createApplication --header "Content-Type:application/json" --data '{"email":"calina.antal", "event":"test", "type":"interested"}'
+
+curl --request POST http://0.0.0.0:5000/modifyStatusForApplication --header "Content-Type:application/json" --data '{"email":"calina.antal", "event":"test", "type":"accepted"}'
+
+curl --request POST http://0.0.0.0:5000/getUsersForEvent --header "Content-Type:application/json" --data '{"name":"test"}'
+
+curl --request GET http://0.0.0.0:5000/getEvents --header "Content-Type:application/json"

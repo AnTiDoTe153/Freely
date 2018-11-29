@@ -19,7 +19,7 @@ export class RequestProvider {
     private errors: Observable<any>;
     private errorsSubject = new Subject<any>();
 
-    private restUrl: string = "http://192.168.86.71:5000/";
+    private restUrl: string = "http://127.0.0.1:5000/";
 
     private jwt_token: String;
 
