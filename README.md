@@ -1,2 +1,2 @@
-# ConkeEvents
+# Freely
 HackTM Sibiu Project
